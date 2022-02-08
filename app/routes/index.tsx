@@ -13,7 +13,11 @@ export async function loader() {
     `*[_type == "news"]{ _id, title, slug, "featureImage": feature.asset->url
    }`
   );
-  return { newsPosts };
+  const aboutText = await getClient().fetch(
+    `*[_type == "about"]{ _id, title, overview, "overviewText": overview[0].children, "featureImage": feature.asset->url
+   }`
+  );
+  return { newsPosts, aboutText };
 }
 
 // Server Side
@@ -25,23 +29,22 @@ export async function loader() {
 
 export const meta = () => {
   return {
-    title: 'A title for this route',
-    description: 'A description for the route',
-    keywords: 'remix, javascript, rct',
+    title: 'Padel Africa | The Number 1 African Padel Company',
+    description: 'Padel Africa home page',
+    keywords: 'padel, africa, sport',
   };
 };
 
 // Client Side
 
 export default function Index() {
-  const { newsPosts } = useLoaderData();
-  console.log(newsPosts);
+  const { newsPosts, aboutText } = useLoaderData();
 
   //const films = useLoaderData<Film[]>();
   return (
     <>
       <Hero
-        heading='Bringing Padel to Africa'
+        heading='Let the game begin'
         body='Integer a eros venenatis, interdum lorem eu, lobortis ligula. Curabitur vel ipsum non tellus convallis elementum. Vivamus pulvinar risus nec sapien commodo bibendum'
         button1Text='Learn More'
         button1To='#about'
@@ -51,8 +54,8 @@ export default function Index() {
       />
 
       <Info
-        title='Lorem ipsum dolor sit amet, consectetur adipiscing elit'
-        body='Integer a eros venenatis, interdum lorem eu, lobortis ligula. Curabitur vel ipsum non tellus convallis elementum. Vivamus pulvinar risus nec sapien commodo bibendum. '
+        title='About Us'
+        body='Integer a eros venenatis, interdum lorem eu, lobortis ligula. Curabitur vel ipsum non tellus convallis elementum. Vivamus pulvinar risus nec sapien commodo bibendum'
         flow='left'
         image='#'
       />

@@ -1,5 +1,5 @@
 {
-  "version": "eeb91bb6",
+  "version": "c927365b",
   "entry": {
     "module": "/build/entry.client-MKQOAIZ2.js",
     "imports": [
@@ -11,7 +11,7 @@
     "root": {
       "id": "root",
       "path": "",
-      "module": "/build/root-CVLLPDZI.js",
+      "module": "/build/root-FBG3K7RG.js",
       "hasAction": false,
       "hasLoader": false,
       "hasCatchBoundary": false,
@@ -41,12 +41,12 @@
       "id": "routes/index",
       "parentId": "root",
       "index": true,
-      "module": "/build/routes/index-CXUWFWBW.js",
+      "module": "/build/routes/index-RVGZOYAK.js",
       "hasAction": false,
       "hasLoader": true,
       "hasCatchBoundary": false,
       "hasErrorBoundary": false
     }
   },
-  "url": "/build/manifest-EEB91BB6.js"
+  "url": "/build/manifest-C927365B.js"
 }
