@@ -14,26 +14,26 @@ interface HeroContent {
 export default function Hero(props: HeroContent) {
   return (
     <section
-      className='[hero] min-h-screen   px-6 md:px-24 flex  flex-col md:flex-row align-middle justify-between  bg-cover     md:space-x-12	 '
+      className='[hero] min-h-screen py-6   px-6 md:px-24 flex  flex-col md:flex-row align-middle justify-between  bg-cover     md:space-x-12	 '
       style={{
         backgroundImage: `linear-gradient(to right, rgb(15, 23, 42), rgba(255, 255, 255, 0.23)),url('${heroImg}')`,
       }}
     >
-      <div className='w-full md:w-3/5 my-auto space-y-vw-2-min@xl '>
-        <h1 className='text-8xl font-bold text-white'>{props.heading}</h1>
+      <div className='w-full md:w-3/5 my-auto space-y-vw-2-min@xl py-8  '>
+        <h1 className='text-4xl font-bold text-white'>{props.heading}</h1>
 
         <p className='text-base font-light text-slate-300'>{props.body}</p>
-        <div className=' md:space-x-vw-4-min@xl  md:inline-flex justify-between'>
-          <button className=' py-4 px-6 bg-gradient-to-br from-green-300   to-yellow-400 rounded-xl font-bold hover:bg-gradient-to-tl hover:scale-105 shadow-2xl'>
+        <div className=' space-x-vw-4-min@xl  md:inline-flex justify-between'>
+          <button className='py-vw-4-min@xl-max@2xl px-vw-4-min@xl-max@2xl bg-gradient-to-br from-green-300   to-yellow-400 rounded-xl font-bold hover:bg-gradient-to-tl hover:scale-105 shadow-2xl'>
             {props.button1Text}
           </button>
-          <button className=' py-4 px-6 bg-gradient-to-br from-white   to-gray-200 rounded-xl font-bold hover:bg-gradient-to-tl hover:scale-105 shadow-2xl'>
+          <button className=' py-vw-4-min@xl-max@2xl px-vw-4-min@xl-max@2xl bg-gradient-to-br from-white   to-gray-200 rounded-xl font-bold hover:bg-gradient-to-tl hover:scale-105 shadow-2xl'>
             {props.button2Text}
           </button>
         </div>
       </div>
 
-      <form className='w-full md:w-1/2  my-auto space-y-vw-4-min@xl bg-white bg-opacity-50 backdrop-blur-lg shadow-2xl	 p-6 rounded-lg  border-slate-900 border-2  h-fit'>
+      <form className='w-full md:w-1/2  my-auto space-y-vw-4-min@xl bg-white  bg-opacity-50 backdrop-blur-lg shadow-2xl	 p-6 rounded-lg  border-slate-900 border-2  h-fit '>
         <p className='font-bold text-lg'>Join the Mailing List</p>
         <div className='mb-6'>
           <label htmlFor='email' className='block mb-2 text-sm font-medium '>

@@ -5,7 +5,12 @@ import CTA from '~/Components/cta';
 import Hero from '~/Components/hero';
 import Info from '~/Components/info';
 import infoImg from '../images/about-pa.jpg';
-import { getClient } from '~/lib/sanity/getClient';
+import { getClient, urlFor } from '~/lib/sanity/getClient';
+import {
+  PortableText,
+  PortableTextTypeComponent,
+  PortableTextComponentsProvider,
+} from '@portabletext/react';
 
 // loader() must be async!
 export async function loader() {
@@ -14,7 +19,7 @@ export async function loader() {
    }`
   );
   const aboutText = await getClient().fetch(
-    `*[_type == "about"]{ _id, title, overview, "overviewText": overview[0].children, "featureImage": feature.asset->url
+    `*[_type == "about"]{ _id, title, overview, "overviewText": overview[0].children, 
    }`
   );
   return { newsPosts, aboutText };
@@ -40,12 +45,21 @@ export const meta = () => {
 export default function Index() {
   const { newsPosts, aboutText } = useLoaderData();
 
+  const myPortableTextComponents = {
+    types: {
+      image: (value: any) => (
+        <img src={value.asset} key={value._id} className={value.asset}></img>
+      ),
+    },
+  };
   //const films = useLoaderData<Film[]>();
   return (
     <>
       <Hero
-        heading='Let the game begin'
-        body='Integer a eros venenatis, interdum lorem eu, lobortis ligula. Curabitur vel ipsum non tellus convallis elementum. Vivamus pulvinar risus nec sapien commodo bibendum'
+        heading='Padel has taken Europe by storm. Now it’s time to bring it to Africa.
+        '
+        body='Using our extensive knowledge of Africa and business development, we aim to provide Padel, as a sport and a community enabler, to Ghana, Kenya, Nigeria and other Sub Saharan countries.
+        '
         button1Text='Learn More'
         button1To='#about'
         button2Text='Want to Partner?'
@@ -60,7 +74,7 @@ export default function Index() {
         image='#'
       />
       <CTA
-        heading='Lorem ipsum dolor sit amet, consectetur adipiscing elit'
+        heading='Are you interested in partnering with the Number 1 African Padel company?'
         body='Integer a eros venenatis, interdum lorem eu, lobortis ligula. Curabitur vel ipsum non tellus convallis elementum. Vivamus pulvinar risus nec sapien commodo bibendum'
         buttonText='Click here'
         buttonTo='#about'
@@ -75,7 +89,19 @@ export default function Index() {
             “ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.”
           </h2>
-          <p className='base'>The Author</p>
+
+          {/* The 2 PortableText instances below will receive the same custom components */}
+          <div className='main-content space-y-2'>
+            {aboutText[0].overview?.length > 0
+              ? aboutText[0].overview.map((paragraphs: any) => (
+                  <PortableText
+                    key={paragraphs._id}
+                    value={[paragraphs]}
+                    components={myPortableTextComponents}
+                  />
+                ))
+              : null}
+          </div>
         </blockquote>
       </section>
 
@@ -128,10 +154,10 @@ export default function Index() {
                   className='hover:shadow-2xl hover:scale-105 hover:font-bold cursor-pointer  p-4  space-y-vw-4-max@md'
                 >
                   <img
-                    className='aspect-square rounded-md  '
-                    src={news.featureImage}
+                    src={urlFor(news.featureImage).width(500).url()}
                     alt={news.title}
                   />
+
                   <Link to={news.slug.current}>{news.title} </Link>
                 </div>
               ))
@@ -141,9 +167,9 @@ export default function Index() {
 
       <section
         id='contact'
-        className='[contact]  bg-slate-900  p-vw-32 space-x-10 flex flex-col text-white '
+        className='[contact]  bg-slate-900   space-x-10   p-vw-32  space-y-10 md:space-x-10 flex flex-col  text-white '
       >
-        <div className='  m-auto  text-center m space-y-vw-6-min@xl w-1/2 '>
+        <div className='  m-auto  text-center m space-y-vw-6-min@xl md:w-1/2 '>
           <h2 className='text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-green-300  via-green-500 to-yellow-400 '>
             Contact Us
           </h2>
@@ -151,17 +177,13 @@ export default function Index() {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
-          <div className='md:space-x-vw-4-min@xl'>
-            <Link to='#' className=' inline-flex '>
-              <button className='py-4 px-6 bg-gradient-to-br from-green-300  via-green-500 to-yellow-400 rounded-xl text-black font-bold hover:bg-gradient-to-tl hover:scale-105 shadow-2xl'>
-                Email Us
-              </button>
-            </Link>
-            <Link to='#' className=' inline-flex '>
-              <button className=' py-4 px-6 bg-gradient-to-br  from-white text-slate-900  to-gray-200 rounded-xl font-bold hover:bg-gradient-to-tl hover:scale-105 shadow-2xl'>
-                Join Mailing List
-              </button>
-            </Link>
+          <div className=' space-x-vw-4-min@xl  md:inline-flex justify-between text-slate-900'>
+            <button className='py-vw-4-min@xl-max@2xl px-vw-4-min@xl-max@2xl bg-gradient-to-br from-green-300   to-yellow-400 rounded-xl font-bold hover:bg-gradient-to-tl hover:scale-105 shadow-2xl'>
+              Email Us
+            </button>
+            <button className=' py-vw-4-min@xl-max@2xl px-vw-4-min@xl-max@2xl bg-gradient-to-br from-white   to-gray-200 rounded-xl font-bold hover:bg-gradient-to-tl hover:scale-105 shadow-2xl'>
+              Join Mailing List
+            </button>
           </div>
         </div>
       </section>
