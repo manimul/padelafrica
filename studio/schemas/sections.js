@@ -1,8 +1,8 @@
 import icon from 'react-icons/lib/md/new-releases';
 
 export default {
-  name: 'about',
-  title: 'About',
+  name: 'sections',
+  title: 'Sections',
   type: 'document',
   icon,
   fields: [

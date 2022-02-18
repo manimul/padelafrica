@@ -1,13 +1,23 @@
 import infoImg from '../images/about-pa.jpg';
+import { useLoaderData } from 'remix';
+
+import { PortableText } from '@portabletext/react';
 
 interface InfoContent {
-  title: string;
-  body: string;
   flow: string;
-  image: string;
 }
 
 export default function Info(props: InfoContent) {
+  const { aboutText } = useLoaderData();
+
+  const myPortableTextComponents = {
+    types: {
+      image: (value: any) => (
+        <img src={value.asset} key={value._id} className={value.asset}></img>
+      ),
+    },
+  };
+
   return (
     <section
       id='about'
@@ -16,11 +26,21 @@ export default function Info(props: InfoContent) {
       } `}
     >
       <div className='md:w-1/2 space-y-4  '>
-        <h2 className='text-4xl font-bold'>{props.title}</h2>
-        <p className='base'>{props.body}</p>
+        <h2 className='text-4xl font-bold'>{aboutText[0].title}</h2>
+        <div className='main-content space-y-2'>
+          {aboutText[0].overview?.length > 0
+            ? aboutText[0].overview.map((paragraphs: any) => (
+                <PortableText
+                  key={paragraphs._id}
+                  value={[paragraphs]}
+                  components={myPortableTextComponents}
+                />
+              ))
+            : null}
+        </div>
       </div>
       <figure className='md:w-1/2 bg-slate-300'>
-        <img src={infoImg} />
+        <img src={aboutText[0].featureImage} />
       </figure>
     </section>
   );

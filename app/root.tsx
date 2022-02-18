@@ -9,6 +9,7 @@ import {
 } from 'remix';
 import { useState, useEffect } from 'react';
 import styles from './styles/tailwind.css';
+import appStyles from './styles/app.css';
 import logo from './images/logo.svg';
 import logoDark from './images/logo-dark.svg';
 import logoLight from './images/logo-light.svg';
@@ -19,7 +20,10 @@ export const meta: MetaFunction = () => {
 };
 
 export function links() {
-  return [{ rel: 'stylesheet', href: styles }];
+  return [
+    { rel: 'stylesheet', href: styles },
+    { rel: 'stylesheet', href: appStyles },
+  ];
 }
 
 export const Nav = () => {
@@ -64,7 +68,7 @@ export const Nav = () => {
           isShrunk
             ? 'transition ease-in-out  md:bg-opacity-75 backdrop-blur-lg z-10 py-2 text-xs   '
             : 'transition ease-in-out md:bg-opacity-0 '
-        } bg-slate-900 border-gray-200 px-4 sm:px-6 py-4 md:fixed w-full text-black `}
+        } bg-slate-900 border-gray-200 px-4 sm:px-12 py-6 md:fixed w-full z-10 text-black `}
       >
         <div className='container flex flex-wrap justify-between items-center mx-auto'>
           <a href='/' className='flex'>

@@ -1,8 +1,11 @@
 module.exports = {
   mode: 'jit',
-  purge: ['./app/**/*.{ts,tsx}'],
   content: [],
+  purge: ['./app/**/*.{ts,tsx}'],
   theme: {
+    fontFamily: {
+      heading: ['Agency FB', 'sans-serif'],
+    },
     fluidType: {
       // your fluid type settings
       // works only with unitless numbers

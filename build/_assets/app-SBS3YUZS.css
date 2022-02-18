@@ -1,0 +1,9 @@
+@font-face {
+  font-family: 'Agency FB';
+  src: local('Agency FB'), url('/fonts/agency-fb.tff'), format('ttf');
+}
+
+@font-face {
+  font-family: 'Agency FB Bold';
+  src: local('Agency FB Bold'), url('/fonts/agency-fb-bold.tff'), format('ttf');
+}
