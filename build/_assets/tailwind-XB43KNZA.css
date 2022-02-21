@@ -1139,7 +1139,7 @@ select {
 }
 
 .font-heading {
-  font-family: Agency FB, sans-serif;
+  font-family: Agency FB, arial;
 }
 
 .text-xs {
@@ -1225,11 +1225,6 @@ select {
 
 .text-transparent {
   color: transparent;
-}
-
-.text-green-500 {
-  --tw-text-opacity: 1;
-  color: rgb(34 197 94 / var(--tw-text-opacity));
 }
 
 .text-slate-300 {

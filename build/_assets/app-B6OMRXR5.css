@@ -1,0 +1,8 @@
+@font-face {
+  font-family: 'Agency FB', 'verdana';
+  src: local('') url('/fonts/agency/agency-fb.woff') format('woff');
+}
+
+.agency {
+  font-family: 'Agency FB';
+}

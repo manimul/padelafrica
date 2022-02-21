@@ -1,0 +1,6 @@
+@font-face {
+  font-family: 'Agency FB';
+  src: local('Agency FB'), url('./fonts/agency-fb.woff'), format('woff');
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');

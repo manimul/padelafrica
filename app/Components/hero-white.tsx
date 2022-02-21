@@ -23,7 +23,7 @@ export default function HeroWhite(props: HeroContent) {
         <div className='w-full  my-auto  uppercase   p-24 '>
           <h1 className='text-6xl font-heading text-white  '>
             Padel has taken Europe by storm.&nbsp;<br></br>
-            <span className='text-transparent bg-clip-text bg-gradient-to-br from-green-300  via-green-500 to-yellow-400'>
+            <span className='text-green-500  '>
               Now it's time to bring it to Africa
             </span>
           </h1>

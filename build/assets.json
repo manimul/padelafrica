@@ -1,5 +1,5 @@
 {
-  "version": "a0019427",
+  "version": "a9af7819",
   "entry": {
     "module": "/build/entry.client-MKQOAIZ2.js",
     "imports": [
@@ -44,7 +44,7 @@
       "id": "routes/index",
       "parentId": "root",
       "index": true,
-      "module": "/build/routes/index-VSTBOMCT.js",
+      "module": "/build/routes/index-ASTPDOBB.js",
       "imports": [
         "/build/_shared/chunk-LJHGUMOU.js",
         "/build/_shared/chunk-SLNHJ22I.js"
@@ -69,5 +69,5 @@
       "hasErrorBoundary": false
     }
   },
-  "url": "/build/manifest-A0019427.js"
+  "url": "/build/manifest-A9AF7819.js"
 }
