@@ -1,5 +1,6 @@
 module.exports = {
   mode: 'jit',
+  darkMode: 'class',
   content: [],
   purge: ['./app/**/*.{ts,tsx}'],
   theme: {

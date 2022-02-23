@@ -58,28 +58,6 @@ export default function Index() {
   //const films = useLoaderData<Film[]>();
   return (
     <>
-      <HeroAlt
-        heading='Padel has taken Europe by storm. Now it’s time to bring it to Africa.
-        '
-        body='Using our extensive knowledge of Africa and business development, we aim to provide Padel, as a sport and a community enabler, to Ghana, Kenya, Nigeria and other Sub Saharan countries.
-        '
-        button1Text='Learn More'
-        button1To='#about'
-        button2Text='Want to Partner?'
-        button2To='#about'
-        imgSrc=''
-      />
-      <HeroWhite
-        heading='Padel has taken Europe by storm. Now it’s time to bring it to Africa.
-        '
-        body='Using our extensive knowledge of Africa and business development, we aim to provide Padel, as a sport and a community enabler, to Ghana, Kenya, Nigeria and other Sub Saharan countries.
-        '
-        button1Text='Learn More'
-        button1To='#about'
-        button2Text='Want to Partner?'
-        button2To='#about'
-        imgSrc=''
-      />
       <Hero
         heading='Padel has taken Europe by storm. Now it’s time to bring it to Africa.
         '

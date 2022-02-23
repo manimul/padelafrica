@@ -1,22 +1,12 @@
 import { Link } from 'remix';
 import heroImg from '../images/padel-hero.jpg';
 
-interface HeroContent {
-  heading: string;
-  body: string;
-  button1Text: string;
-  button1To: string;
-  button2Text: string;
-  button2To: string;
-  imgSrc: string;
-}
-
-export default function HeroWhite(props: HeroContent) {
+export default function HeroWhite() {
   return (
     <section
       className='[hero] min-h-screen    flex  flex-col md:flex-row align-middle justify-between  bg-cover     '
       style={{
-        backgroundImage: `linear-gradient(to right, rgba(24, 23, 42, 0.5), rgba(255, 255, 255, 0.23)),url('${heroImg}')`,
+        backgroundImage: `linear-gradient(to right, rgba(24, 23, 42, 0.9), rgba(255, 255, 255, 0.1)),url('${heroImg}')`,
       }}
     >
       <div className='w-1/2 h-screen bg-white bg-opacity-10 backdrop-blur-2xl flex'>

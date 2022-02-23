@@ -1,5 +1,5 @@
 {
-  "version": "a9af7819",
+  "version": "5f66ebf0",
   "entry": {
     "module": "/build/entry.client-MKQOAIZ2.js",
     "imports": [
@@ -11,7 +11,7 @@
     "root": {
       "id": "root",
       "path": "",
-      "module": "/build/root-DMXBDNQO.js",
+      "module": "/build/root-NWDAJV3D.js",
       "hasAction": false,
       "hasLoader": false,
       "hasCatchBoundary": false,
@@ -44,9 +44,9 @@
       "id": "routes/index",
       "parentId": "root",
       "index": true,
-      "module": "/build/routes/index-ASTPDOBB.js",
+      "module": "/build/routes/index-Y7BWHQLE.js",
       "imports": [
-        "/build/_shared/chunk-LJHGUMOU.js",
+        "/build/_shared/chunk-HHEWWDWW.js",
         "/build/_shared/chunk-SLNHJ22I.js"
       ],
       "hasAction": false,
@@ -58,9 +58,9 @@
       "id": "routes/old_index",
       "parentId": "root",
       "path": "old_index",
-      "module": "/build/routes/old_index-6VTDTFHD.js",
+      "module": "/build/routes/old_index-CAPZGWG3.js",
       "imports": [
-        "/build/_shared/chunk-LJHGUMOU.js",
+        "/build/_shared/chunk-HHEWWDWW.js",
         "/build/_shared/chunk-SLNHJ22I.js"
       ],
       "hasAction": false,
@@ -69,5 +69,5 @@
       "hasErrorBoundary": false
     }
   },
-  "url": "/build/manifest-A9AF7819.js"
+  "url": "/build/manifest-5F66EBF0.js"
 }

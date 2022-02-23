@@ -1,17 +1,7 @@
 import { Link } from 'remix';
 import heroImg from '../images/padel-hero.jpg';
 
-interface HeroContent {
-  heading: string;
-  body: string;
-  button1Text: string;
-  button1To: string;
-  button2Text: string;
-  button2To: string;
-  imgSrc: string;
-}
-
-export default function Hero(props: HeroContent) {
+export default function Hero() {
   return (
     <section
       className='[hero] min-h-screen    flex  flex-col md:flex-row align-middle justify-between  bg-cover     '
