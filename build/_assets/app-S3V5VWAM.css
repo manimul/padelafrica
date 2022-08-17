@@ -1,0 +1,11 @@
+@font-face {
+  font-family: 'Agency FB';
+  src: local(''), url(/fonts/agency/agency-fb.woff) format('woff');
+}
+
+form > *[aria-hidden='true'] {
+  opacity: 0;
+  transition-delay: 0s;
+  display: none;
+  transform: scale(0.8);
+}

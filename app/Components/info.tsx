@@ -21,13 +21,13 @@ export default function Info(props: InfoContent) {
   return (
     <section
       id='about'
-      className={`[cta]  p-vw-32  space-y-10 md:space-x-10 flex flex-col md:flex-row ${
+      className={`[cta]  p-vw-32  space-y-10 md:space-x-14 flex flex-col md:flex-row ${
         props.flow == 'left' ? '' : ' md:flex-row-reverse space-x-reverse'
       } `}
     >
-      <div className='md:w-1/2 space-y-4  '>
-        <h2 className='text-4xl font-bold'>{aboutText[0].title}</h2>
-        <div className='main-content space-y-2'>
+      <div className='md:w-2/5  space-y-4  '>
+        <h2 className='text-5xl font-heading'>{aboutText[0].title}</h2>
+        <div className='main-content space-y-2 text-md'>
           {aboutText[0].overview?.length > 0
             ? aboutText[0].overview.map((paragraphs: any) => (
                 <PortableText
@@ -40,7 +40,7 @@ export default function Info(props: InfoContent) {
         </div>
       </div>
       <figure className='md:w-1/2 bg-slate-300'>
-        <img src={aboutText[0].featureImage} />
+        <img className='w-full' src={aboutText[0].featureImage} />
       </figure>
     </section>
   );

@@ -5,7 +5,7 @@ import logoLight from './images/pa-logo-light.svg';
 export default function Footer() {
   return (
     <footer className='p-4  sm:p-8  bg-slate-900'>
-      <div className='md:flex md:justify-between'>
+      <div className=' container md:flex md:justify-between'>
         <div className='mb-6 md:mb-0'>
           <a href='#' target='_blank' className='flex items-center'>
             <img src={logoLight} className='mr-4 h-20' alt='Padel Africa' />

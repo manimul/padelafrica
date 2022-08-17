@@ -4,10 +4,12 @@ import {
   LiveReload,
   Meta,
   Outlet,
+  ActionFunction,
   Scripts,
   ScrollRestoration,
 } from 'remix';
 import heroImg from './images/padel-hero.jpg';
+import CookieConsent from 'react-cookie-consent';
 
 import { useState, useEffect } from 'react';
 import styles from './styles/tailwind.css';
@@ -32,7 +34,7 @@ export const Nav = (setDarkMode: {
   setDarkMode: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
   const darkModeToggle = () => {
-    console.log(setDarkMode.setDarkMode);
+    //console.log(setDarkMode.setDarkMode);
 
     setDarkMode.setDarkMode((prev) => !prev);
     //setDarkMode((prev) => !prev);
@@ -70,9 +72,9 @@ export const Nav = (setDarkMode: {
 
   const [navbarOpen, setNavbarOpen] = useState(false);
   const handleToggle = () => {
-    console.log(navbarOpen);
+    //console.log(navbarOpen);
 
-    console.log(setNavbarOpen);
+    // console.log(setNavbarOpen);
     setNavbarOpen((prev) => !prev);
   };
 
@@ -150,7 +152,12 @@ export const Nav = (setDarkMode: {
           >
             <ul className='flex flex-col  mt-12 md:mt-0   md:flex-row md:space-x-8   text-slate-900 dark:text-white'>
               <li>
-                {' '}
+                <Link to='/'>Home </Link>
+              </li>
+              <li>
+                <Link to='/join-us'>Join Us </Link>
+              </li>
+              <li>
                 <a href='https://www.facebook.com/padel.africa' className=''>
                   <svg
                     className={` ${navbarOpen ? 'hidden' : 'w-7 h-7'} `}
@@ -206,11 +213,13 @@ export const Nav = (setDarkMode: {
                 id='theme-toggle'
                 onClick={darkModeToggle}
                 type='button'
-                className='text-slate-900 dark:text-white hover:bg-gray-100 dark:hover:bg-slate-900  rounded-lg text-sm '
+                className='text-slate-900 dark:text-white md:hover:bg-gray-100 md:dark:hover:bg-slate-900  rounded-lg text-sm '
               >
                 <svg
                   id='theme-toggle-dark-icon'
-                  className={` block dark:hidden w-7 h-7`}
+                  className={` ${
+                    navbarOpen ? 'hidden' : 'block dark:hidden w-7 h-7'
+                  } `}
                   fill='currentColor'
                   viewBox='0 0 20 20'
                   xmlns='http://www.w3.org/2000/svg'
@@ -219,7 +228,9 @@ export const Nav = (setDarkMode: {
                 </svg>
                 <svg
                   id='theme-toggle-light-icon'
-                  className={`hidden dark:block w-7 h-7`}
+                  className={` ${
+                    navbarOpen ? 'hidden' : 'hidden dark:block w-7 h-7'
+                  } `}
                   fill='currentColor'
                   viewBox='0 0 20 20'
                   xmlns='http://www.w3.org/2000/svg'
@@ -230,6 +241,15 @@ export const Nav = (setDarkMode: {
                     clipRule='evenodd'
                   ></path>
                 </svg>
+                <span
+                  className={` ${
+                    navbarOpen
+                      ? 'h-screen text-4xl text-center align-middle justify-center'
+                      : 'hidden'
+                  } `}
+                >
+                  Toggle Dark Mode
+                </span>
               </button>
             </ul>
           </div>
@@ -291,9 +311,43 @@ export default function App() {
         <Nav setDarkMode={setDarkMode} />
         <Outlet />
         <Footer />
+        <CookieConsent
+          location='bottom'
+          buttonText='Accept'
+          cookieName='padel-africa-cookie'
+          style={{ background: '#2B373B' }}
+          buttonStyle={{ color: '#4e503b', fontSize: '1rem' }}
+          expires={150}
+        >
+          This website uses cookies to enhance the user experience.{' '}
+        </CookieConsent>
+
         <ScrollRestoration />
         <Scripts />
         {process.env.NODE_ENV === 'development' && <LiveReload />}
+      </body>
+    </html>
+  );
+}
+
+export function ErrorBoundary() {
+  return (
+    <html lang='en'>
+      <head>
+        <meta charSet='utf-8' />
+        <meta name='viewport' content='width=device-width,initial-scale=1' />
+        <script></script>
+        <Meta />
+        <Links />
+      </head>
+      <body className='text-slate-900 flex h-screen w-full justify-center align-middle m-auto  '>
+        <div className='text-4xl m-auto text-center'>
+          <p>😳 Oops - Page Not Found</p>
+          <Link className='underline text-green-700' to='/'>
+            Go Home
+          </Link>
+        </div>
+        <Scripts />
       </body>
     </html>
   );

@@ -8,6 +8,7 @@ import blockContent from './blockContent';
 
 import news from './news';
 import sections from './sections';
+import team from './team';
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -20,6 +21,7 @@ export default createSchema({
     // in the studio.
 
     news,
+    team,
     sections,
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
