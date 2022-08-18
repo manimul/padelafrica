@@ -20,11 +20,11 @@ export default function Hero(props: HeroContent) {
           <p className='text-2xl'>What happens when</p>
           <h1 className='text-4xl md:text-6xl '>
             The{' '}
-            <span className=' text-transparent bg-clip-text bg-gradient-to-br from-green-300  via-green-500 to-slate-900 dark:to-yellow-300'>
+            <span className=' md:text-transparent md:bg-clip-text md:bg-gradient-to-br from-green-300  via-green-500 to-slate-900 dark:to-yellow-300'>
               world's fastest sport
             </span>{' '}
             meets the{' '}
-            <span className='text-transparent bg-clip-text bg-gradient-to-br from-yellow-300  via-yellow-500 to-slate-900 dark:to-green-300'>
+            <span className='md:text-transparent md:bg-clip-text md:bg-gradient-to-br from-yellow-300  via-yellow-500 to-slate-900 dark:to-green-300'>
               world's fastest continent
             </span>
             ?

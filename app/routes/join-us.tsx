@@ -64,7 +64,7 @@ export default function JoinUs() {
         />
       </div>
       <section className='my-auto bg-white md:p-32 py-12 px-3 flex md:flex-row flex-col justify-between text-black '>
-        <div className='md:w-1/2 px-12 space-y-4'>
+        <div className='md:w-1/2 px-8 space-y-4'>
           <h1 className='text-5xl  font-heading  '>Join Padel Africa</h1>
           <div className='space-y-2 '>
             <p>
@@ -151,9 +151,10 @@ export default function JoinUs() {
         <aside className='bg-gray-50 md:w-2/5 h-fit   space-y-2  '>
           <div className='p-8'>
             <h2 className='text-2xl font-heading pb-4'>Upcoming events</h2>
-            <ul className='space-y-2 text-xs '>
+            <ul className='space-y-3 text-xs '>
               <li>
-                <strong>23rd August</strong> - Online - 16.00-17.00 CEST -{' '}
+                <strong>Kickoff Zoom Online </strong> - 23rd August -
+                16.00-17.00 CEST -
                 <a
                   className='underline font-bold text-green-800'
                   href='https://www.eventbrite.com/e/when-the-fastest-growing-sport-meets-the-fastest-growing-continent-tickets-400567747917'
@@ -161,21 +162,28 @@ export default function JoinUs() {
                   Eventbrite Registration
                 </a>
               </li>
-
-              <h3 className='font-bold pt-4'>
-                Local Events (Register in the form below)
+              <hr className=''></hr>
+              <h3 className='font-bold  text-md'>
+                Local events planned between 23rd Aug and 9th Sep
               </h3>
+              <p className='italic'>Register your interest in the form below</p>
               <li>
-                <strong>24th August</strong> - Stockholm - 16.30-17.30
+                <strong>Stockholm </strong> - date and time TBC
               </li>
               <li>
-                <strong>25th August</strong> - Gothenburg - 16-17
+                <strong>Gothenburg </strong> - date and time TBC
               </li>
               <li>
-                <strong>29th August</strong> - Malmö - 16-17
+                <strong>Malmö</strong> - date and time TBC
               </li>
               <li>
-                <strong>30th August</strong> - Copenhagen - 16-17
+                <strong>Helsingborg</strong> - date and time TBC
+              </li>
+              <li>
+                <strong>Jönköping</strong> - date and time TBC
+              </li>
+              <li>
+                <strong>Copenhagen</strong> - date and time TBC
               </li>
             </ul>
           </div>
@@ -229,7 +237,7 @@ export default function JoinUs() {
               </div>
               <div className='mb-6'>
                 <label htmlFor='company' className='block text-xs '>
-                  Event
+                  Location
                 </label>
                 <select
                   id='event'
@@ -237,10 +245,12 @@ export default function JoinUs() {
                   className='bg-gray-50 border border-gray-300 text-sm dark:text-slate-900   block w-full p-2.5    dark:focus:ring-blue-500 dark:focus:border-blue-500'
                   required
                 >
-                  <option value='stockholm'>24th Aug - Stockholm</option>
-                  <option value='gothenburg'>25th Aug - Gothenburg</option>
-                  <option value='malmo'>29th Aug - Malmö</option>
-                  <option value='copenhagen'>30th Aug - Copenhagen</option>
+                  <option value='stockholm'>Stockholm</option>
+                  <option value='gothenburg'>Gothenburg</option>
+                  <option value='malmo'>Malmö</option>
+                  <option value='helsingborg'>Helsingborg</option>
+                  <option value='jonkoping'>Jönköping</option>
+                  <option value='copenhagen'>Copenhagen</option>
                 </select>
               </div>
 
