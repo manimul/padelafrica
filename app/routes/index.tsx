@@ -6,6 +6,7 @@ import {
   ActionFunction,
 } from 'remix';
 import { Meta } from 'remix';
+
 import { getFilms, Film } from '~/api/films';
 import CTA from '~/Components/cta';
 import Hero from '~/Components/hero';
@@ -50,9 +51,10 @@ export async function loader() {
 
 export const meta = () => {
   return {
-    title: 'Padel Africa | The Number 1 African Padel Company',
-    description: 'Padel Africa home page',
-    keywords: 'padel, africa, sport',
+    title: 'Padel Africa - Padel is Not Just a Sport',
+    description:
+      'Padel Africa is bringing padel, as a sport, a lifestyle, and a community builder, to Africa.   ',
+    keywords: 'padel, africa, sport, ghana, rwanda, kenya, uganda, community',
   };
 };
 

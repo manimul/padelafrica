@@ -7,7 +7,11 @@ import {
   ActionFunction,
   Scripts,
   ScrollRestoration,
+  useLoaderData,
+  useLocation,
+  useMatches,
 } from 'remix';
+
 import heroImg from './images/padel-hero.jpg';
 import CookieConsent from 'react-cookie-consent';
 
@@ -17,7 +21,19 @@ import appStyles from './styles/app.css';
 import logo from './images/logo.svg';
 import logoDark from './images/pa-logo-dark.svg';
 import logoLight from './images/pa-logo-light.svg';
-import type { MetaFunction } from 'remix';
+import type { LoaderFunction, MetaFunction } from 'remix';
+import { json } from 'remix';
+
+import * as gtag from '~/utils/gtags.client';
+import InfoBar from './Components/info-bar';
+type LoaderData = {
+  gaTrackingId: string | undefined;
+};
+
+// Load the GA tracking id from the .env
+export const loader: LoaderFunction = async () => {
+  return json<LoaderData>({ gaTrackingId: process.env.GA_TRACKING_ID });
+};
 
 export const meta: MetaFunction = () => {
   return { title: 'Padel Africa' };
@@ -71,6 +87,7 @@ export const Nav = (setDarkMode: {
   }, []);
 
   const [navbarOpen, setNavbarOpen] = useState(false);
+  const doNothing = () => {};
   const handleToggle = () => {
     //console.log(navbarOpen);
 
@@ -88,6 +105,7 @@ export const Nav = (setDarkMode: {
             : 'transition ease-in-out md:bg-opacity-0 '
         } bg-slate-900 border-gray-200 px-4 sm:px-12 py-6 md:fixed w-full z-10 text-black `}
       >*/}
+
       <nav className='bg-none border-gray-200 px-4 sm:px-12 py-6 w-full z-10 text-black   '>
         <div className='container flex flex-wrap justify-between items-center mx-auto'>
           <a href='/' className='flex'>
@@ -150,15 +168,18 @@ export const Nav = (setDarkMode: {
             } w-full md:block md:w-auto`}
             id='mobile-menu'
           >
-            <ul className='flex flex-col  mt-12 md:mt-0   md:flex-row md:space-x-8   text-slate-900 dark:text-white'>
-              <li>
+            <ul className='flex flex-col  mt-12 md:mt-0   md:flex-row md:space-x-8 space-y-4  md:space-y-0   text-slate-900 dark:text-white'>
+              <li onClick={navbarOpen ? handleToggle : doNothing}>
                 <Link to='/'>Home </Link>
               </li>
-              <li>
+              <li onClick={navbarOpen ? handleToggle : doNothing}>
+                <Link to='/about'>About </Link>
+              </li>
+              <li onClick={navbarOpen ? handleToggle : doNothing}>
                 <Link to='/join-us'>Join Us </Link>
               </li>
               <li>
-                <a href='https://www.facebook.com/padel.africa' className=''>
+                <a href='https://www.facebook.com/padelafrica' className=''>
                   <svg
                     className={` ${navbarOpen ? 'hidden' : 'w-7 h-7'} `}
                     fill='currentColor'
@@ -182,10 +203,40 @@ export const Nav = (setDarkMode: {
                   </span>
                 </a>
               </li>
-
               <li>
                 {' '}
-                <a href='https://www.instagram.com/padel.africa/' className=''>
+                <a
+                  href='https://www.linkedin.com/company/padelafrica/'
+                  className=''
+                >
+                  <svg
+                    className={` ${navbarOpen ? 'hidden' : 'w-7 h-7'} `}
+                    fill='currentColor'
+                    viewBox='0 0 17 17'
+                    height='100%'
+                    width='100%'
+                    aria-hidden='true'
+                  >
+                    <path
+                      fillRule='evenodd'
+                      d='M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z'
+                      clipRule='evenodd'
+                    />
+                  </svg>
+                  <span
+                    className={` ${
+                      navbarOpen
+                        ? 'h-screen text-4xl text-center align-middle justify-center'
+                        : 'hidden'
+                    } `}
+                  >
+                    Linkedin{' '}
+                  </span>
+                </a>
+              </li>
+              <li>
+                {' '}
+                <a href='https://www.instagram.com/padel_africa/' className=''>
                   <svg
                     className={` ${navbarOpen ? 'hidden' : 'w-7 h-7'} `}
                     fill='currentColor'
@@ -210,6 +261,7 @@ export const Nav = (setDarkMode: {
                 </a>
               </li>
               <button
+                hidden
                 id='theme-toggle'
                 onClick={darkModeToggle}
                 type='button'
@@ -271,15 +323,15 @@ export function Footer() {
           . All Rights Reserved.
         </span>
         <div className='flex mt-4 space-x-6 sm:justify-center sm:mt-0'>
-          <a href='#' className=''>
-            Terms & Conditions
-          </a>
-          <a href='#' className=' '>
-            Privacy Policy
-          </a>
-          <a href='#' className=''>
-            Investors
-          </a>
+          <Link to='/' className=''>
+            Home
+          </Link>
+          <Link to='/about' className=''>
+            About{' '}
+          </Link>{' '}
+          <Link to='/join-us' className=''>
+            Join Us
+          </Link>
         </div>
       </div>
     </footer>
@@ -288,13 +340,31 @@ export function Footer() {
 
 export default function App() {
   const [darkMode, setDarkMode] = useState(false);
+  const location = useLocation();
+  const { gaTrackingId } = useLoaderData<LoaderData>();
 
+  useEffect(() => {
+    if (gaTrackingId?.length) {
+      gtag.pageview(location.pathname, gaTrackingId);
+    }
+  }, [location, gaTrackingId]);
+  const matches = useMatches();
+  console.log(matches);
   return (
     <html lang='en' className={` ${darkMode ? '' : 'dark'} scroll-smooth`}>
       <head>
         <meta charSet='utf-8' />
         <meta name='viewport' content='width=device-width,initial-scale=1' />
+
         <script></script>
+        {/*
+        <script
+          id='Cookiebot'
+          src='https://consent.cookiebot.com/uc.js'
+          data-cbid='64efa4ef-8da5-4c64-9e63-392bac18d3c1'
+          data-blockingmode='auto'
+          type='text/javascript'
+  ></script> */}
         <Meta />
         <Links />
       </head>
@@ -308,6 +378,27 @@ export default function App() {
         }}
         className='text-slate-900 dark:text-white  bg-cover bg-fixed   '
       >
+        <script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=G-MV5HYEZ67F`}
+        />
+        <script
+          async
+          id='gtag-init'
+          dangerouslySetInnerHTML={{
+            __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+
+                gtag('config', 'G-MV5HYEZ67F', {
+                  page_path: window.location.pathname,
+                });
+              `,
+          }}
+        />
+        {matches[1].pathname != '/join-us' && <InfoBar />}
+
         <Nav setDarkMode={setDarkMode} />
         <Outlet />
         <Footer />
@@ -325,29 +416,6 @@ export default function App() {
         <ScrollRestoration />
         <Scripts />
         {process.env.NODE_ENV === 'development' && <LiveReload />}
-      </body>
-    </html>
-  );
-}
-
-export function ErrorBoundary() {
-  return (
-    <html lang='en'>
-      <head>
-        <meta charSet='utf-8' />
-        <meta name='viewport' content='width=device-width,initial-scale=1' />
-        <script></script>
-        <Meta />
-        <Links />
-      </head>
-      <body className='text-slate-900 flex h-screen w-full justify-center align-middle m-auto  '>
-        <div className='text-4xl m-auto text-center'>
-          <p>😳 Oops - Page Not Found</p>
-          <Link className='underline text-green-700' to='/'>
-            Go Home
-          </Link>
-        </div>
-        <Scripts />
       </body>
     </html>
   );

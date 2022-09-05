@@ -1,4 +1,4 @@
-import { ActionFunction, Form, useActionData, Link } from 'remix';
+import { ActionFunction, Form, useActionData, Link, Meta } from 'remix';
 
 import CTA from '~/Components/cta';
 import Hero from '~/Components/campaign-hero';
@@ -34,6 +34,16 @@ export let action: ActionFunction = async ({ request }) => {
   return res.json();
 };
 
+export const meta = () => {
+  return {
+    title: 'Join Padel Africa - Padel is Not Just a Sport',
+    description:
+      'Join Padel Africa in bringing padel, as a sport, a lifestyle, and a community builder, to Africa.   ',
+    keywords: 'padel, africa, sport, ghana, rwanda, kenya, uganda, community',
+    'og:image': `https://padel.africa${BgImg}`,
+  };
+};
+
 export default function JoinUs() {
   let actionData = useActionData();
   let state: 'idle' | 'success' | 'error' = actionData?.subscription
@@ -49,7 +59,7 @@ export default function JoinUs() {
         style={{
           backgroundImage: ` url('${BgImg}')`,
         }}
-        className='text-slate-900 -mt-32 dark:text-white  md:bg-fixed md:bg-center bg-[center_right_-17rem]  bg-cover   '
+        className='text-slate-900 -mt-32 dark:text-white  md:bg-fixed md:bg-center bg-[center_right_-17rem]  md:bg-cover   '
       >
         <Hero
           heading='What happens when the fastest sport meets the fastest continent?
@@ -69,8 +79,8 @@ export default function JoinUs() {
           <div className='space-y-2 '>
             <p>
               So, what happens when the fastest growing sport meets the fastest
-              growing continent? Incredible, exciting, life changing things. Of
-              course. Especially If you are one of the canny people sharp enough
+              growing continent? Incredible, exciting, life changing things of
+              course. Especially if you are one of the canny people sharp enough
               to get involved early.{' '}
             </p>
             <p>
@@ -134,41 +144,33 @@ export default function JoinUs() {
             </p>
             <p>
               We are just about to set off on a roadshow where we will present
-              to audiences across online and across Denmark and Sweden (see
-              dates and locations on this page).
-              <h3 className='font-bold mt-4 '>
-                We would like you to join us to learn:
-              </h3>{' '}
-              <ul className=' list-disc list-inside'>
-                <li>Why are we committed to bringing padel to Africa.</li>
-                <li>Who are the team behind Padel Africa.</li>
-                <li>What makes us so capable of succeeding. </li>
-                <li> How, and why you can join us.</li>
-              </ul>
+              to audiences across Denmark and Sweden (see dates and locations on
+              this page).
             </p>
+            <h3 className='font-bold mt-4 '>
+              We would like you to join us to learn:
+            </h3>{' '}
+            <ul className=' list-disc list-inside'>
+              <li>Why are we committed to bringing padel to Africa.</li>
+              <li>Who is on our team.</li>
+              <li>What makes us so capable of succeeding. </li>
+              <li>How you can join us.</li>
+            </ul>
           </div>
         </div>
-        <aside className='bg-gray-50 md:w-2/5 h-fit   space-y-2  '>
+        <aside id='events' className='bg-gray-50 md:w-2/5 h-fit   space-y-2   '>
           <div className='p-8'>
             <h2 className='text-2xl font-heading pb-4'>Upcoming events</h2>
             <ul className='space-y-3 text-xs '>
+              <p className='italic'>
+                Register your interest in the form below and we will keep you
+                updated
+              </p>
               <li>
-                <strong>Kickoff Zoom Online </strong> - 23rd August -
-                16.00-17.00 CEST -
-                <a
-                  className='underline font-bold text-green-800'
-                  href='https://www.eventbrite.com/e/when-the-fastest-growing-sport-meets-the-fastest-growing-continent-tickets-400567747917'
-                >
-                  Eventbrite Registration
+                <strong>Stockholm </strong> - 2nd September -{' '}
+                <a className='underline bold' href='mailto:hakan@bambwa.com'>
+                  Email for details
                 </a>
-              </li>
-              <hr className=''></hr>
-              <h3 className='font-bold  text-md'>
-                Local events planned between 23rd Aug and 9th Sep
-              </h3>
-              <p className='italic'>Register your interest in the form below</p>
-              <li>
-                <strong>Stockholm </strong> - date and time TBC
               </li>
               <li>
                 <strong>Gothenburg </strong> - date and time TBC
@@ -188,13 +190,13 @@ export default function JoinUs() {
             </ul>
           </div>
           <Form
-            className='w-full   my-6 text-slate-900  dark:text-white md:my-auto space-y-vw-4-min@xl bg-white dark:bg-slate-900   bg-opacity-50 backdrop-blur-lg shadow-2xl	 p-6    h-fit '
+            className='w-full   my-6 text-slate-900  dark:text-white md:my-auto space-y-vw-4-min@xl bg-white dark:bg-slate-900   bg-opacity-50 backdrop-blur-lg shadow-2xl	 p-12    h-fit '
             method='post'
             aria-hidden={state === 'success'}
           >
             <fieldset>
-              <p className='font-heading text-lg  uppercase'>
-                Register for a local event
+              <p className='font-heading text-lg  uppercase mb-4'>
+                Interested in hearing more?
               </p>
               <div className='mb-6'>
                 <label htmlFor='name' className='block  text-xs   '>
@@ -204,7 +206,7 @@ export default function JoinUs() {
                   type='text'
                   name='name'
                   id='name'
-                  className='bg-gray-50 border border-gray-300 dark:text-slate-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 0  dark:focus:ring-blue-500 dark:focus:border-blue-500'
+                  className='bg-gray-50 border border-gray-300 dark:text-slate-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 0  dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:placeholder-gray-400'
                   placeholder='Joe Bloggs'
                   required
                 />
@@ -222,28 +224,15 @@ export default function JoinUs() {
                   required
                 />
               </div>
+
               <div className='mb-6'>
                 <label htmlFor='company' className='block text-xs '>
-                  Your Company
-                </label>
-                <input
-                  type='text'
-                  id='company'
-                  name='company'
-                  className='bg-gray-50 border border-gray-300 text-sm dark:text-slate-900   block w-full p-2.5    dark:focus:ring-blue-500 dark:focus:border-blue-500'
-                  placeholder='Acme Inc'
-                  required
-                />
-              </div>
-              <div className='mb-6'>
-                <label htmlFor='company' className='block text-xs '>
-                  Location
+                  Where would you like to meet us?
                 </label>
                 <select
                   id='event'
                   name='event'
                   className='bg-gray-50 border border-gray-300 text-sm dark:text-slate-900   block w-full p-2.5    dark:focus:ring-blue-500 dark:focus:border-blue-500'
-                  required
                 >
                   <option value='stockholm'>Stockholm</option>
                   <option value='gothenburg'>Gothenburg</option>
@@ -251,6 +240,8 @@ export default function JoinUs() {
                   <option value='helsingborg'>Helsingborg</option>
                   <option value='jonkoping'>Jönköping</option>
                   <option value='copenhagen'>Copenhagen</option>
+                  <option value='copenhagen'>Online</option>
+                  <option value='copenhagen'>Don't want to meet</option>
                 </select>
               </div>
 
@@ -268,11 +259,11 @@ export default function JoinUs() {
             //className={ if (state === "sucess")  {'hidden'} else{'block'} }
             aria-hidden={state !== 'success'}
           >
-            <h2 className='text-2xl font-heading'>🚀 You're Registered!</h2>
+            <h2 className='text-2xl font-heading'>🚀 You're on the list!</h2>
 
             <p>
-              Thanks for registering for this event, you will be sent an email
-              with more information.
+              Thanks for expressing interest, you will be sent an email with
+              more information.
             </p>
             <Link className='underline text-green-300' to='.'>
               Start Over

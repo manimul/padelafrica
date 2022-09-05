@@ -1,5 +1,5 @@
 import infoImg from '../images/about-pa.jpg';
-import { useLoaderData } from 'remix';
+import { useLoaderData, Link } from 'remix';
 
 import { PortableText } from '@portabletext/react';
 
@@ -28,6 +28,25 @@ export default function Info(props: InfoContent) {
       <div className='md:w-2/5  space-y-4  '>
         <h2 className='text-5xl font-heading'>{aboutText[0].title}</h2>
         <div className='main-content space-y-2 text-md'>
+          <p>
+            We believe that Africa is the next growth centre of the world and
+            that it provides immense opportunities for the few who take the leap
+            and expand to Africa. On the other hand, we are also very aware that
+            in order to succeed in Africa, it requires in-depth understanding of
+            the product you would like to offer, and a thorough understanding of
+            the market.
+          </p>
+          <p>
+            We are confident that our team has the required prerequisites to
+            succeed. We are a conglomerate of padel enthusiasts and business
+            profiles. Combined we have started over 100 companies, sold 2000
+            courts, worked 20 years with Padel and 30 years of business
+            experience from Sub Saharan Africa.
+          </p>
+          <Link className='block mt-6 underline text-green-500 ' to='/about'>
+            Learn More About Us{' '}
+          </Link>
+          {/*
           {aboutText[0].overview?.length > 0
             ? aboutText[0].overview.map((paragraphs: any) => (
                 <PortableText
@@ -36,7 +55,7 @@ export default function Info(props: InfoContent) {
                   components={myPortableTextComponents}
                 />
               ))
-            : null}
+            : null} */}
         </div>
       </div>
       <figure className='md:w-1/2 bg-slate-300'>

@@ -26,8 +26,8 @@ export default function Hero(props: HeroContent) {
       <main className='[hero] container mx-auto bg-none  md:pt-32 md:pb-12 mb-12 md:-mt-16 px-8 sm:px-12 flex  flex-col md:flex-row align-middle md:justify-between  bg-cover  md:space-x-12	 '>
         <div className='w-full md:w-2/5 md:my-auto space-y-vw-2-min@xl md:py-16  '>
           <h1 className='text-4xl md:text-6xl font-heading uppercase '>
-            Padel has taken Europe by storm.&nbsp;<br></br>
-            <span className='block text-transparent bg-clip-text bg-gradient-to-br from-green-300  via-green-500 to-slate-900 dark:to-yellow-300'>
+            Padel has taken Europe by storm.
+            <span className='inline md:block md:text-transparent md:bg-clip-text md:bg-gradient-to-br from-green-300  via-green-500 to-slate-900 dark:to-yellow-300'>
               Now it's time to bring it to Africa
             </span>
           </h1>
