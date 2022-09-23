@@ -1,9 +1,10 @@
 {
-  "version": "2c3aa20a",
+  "version": "01836ce4",
   "entry": {
-    "module": "/build/entry.client-5K3GDPFC.js",
+    "module": "/build/entry.client-BQVS53KK.js",
     "imports": [
-      "/build/_shared/chunk-R7WLZTSX.js",
+      "/build/_shared/chunk-5MYFW3RJ.js",
+      "/build/_shared/chunk-2UMAPVQ3.js",
       "/build/_shared/chunk-E7VMOUYL.js"
     ]
   },
@@ -11,20 +12,7 @@
     "root": {
       "id": "root",
       "path": "",
-      "module": "/build/root-37VJP3JP.js",
-      "hasAction": false,
-      "hasLoader": true,
-      "hasCatchBoundary": false,
-      "hasErrorBoundary": false
-    },
-    "routes/$slug": {
-      "id": "routes/$slug",
-      "parentId": "root",
-      "path": ":slug",
-      "module": "/build/routes/$slug-4RMKKQ7S.js",
-      "imports": [
-        "/build/_shared/chunk-SLNHJ22I.js"
-      ],
+      "module": "/build/root-SRYM4XSX.js",
       "hasAction": false,
       "hasLoader": true,
       "hasCatchBoundary": false,
@@ -34,9 +22,9 @@
       "id": "routes/_index",
       "parentId": "root",
       "path": "_index",
-      "module": "/build/routes/_index-XLR4TXAT.js",
+      "module": "/build/routes/_index-AW47XRTJ.js",
       "imports": [
-        "/build/_shared/chunk-5NJDQYSA.js",
+        "/build/_shared/chunk-YO2Z4YZV.js",
         "/build/_shared/chunk-SLNHJ22I.js"
       ],
       "hasAction": true,
@@ -48,11 +36,27 @@
       "id": "routes/about",
       "parentId": "root",
       "path": "about",
-      "module": "/build/routes/about-RHWGCJUX.js",
+      "module": "/build/routes/about-2HPXTACT.js",
       "imports": [
-        "/build/_shared/chunk-BIQIHRPM.js"
+        "/build/_shared/chunk-UTFHOC7N.js",
+        "/build/_shared/chunk-HDHMN7Z2.js",
+        "/build/_shared/chunk-V65HAAZX.js"
       ],
       "hasAction": false,
+      "hasLoader": false,
+      "hasCatchBoundary": false,
+      "hasErrorBoundary": false
+    },
+    "routes/contact": {
+      "id": "routes/contact",
+      "parentId": "root",
+      "path": "contact",
+      "module": "/build/routes/contact-QWU5NKT6.js",
+      "imports": [
+        "/build/_shared/chunk-PMLKQLSF.js",
+        "/build/_shared/chunk-V65HAAZX.js"
+      ],
+      "hasAction": true,
       "hasLoader": false,
       "hasCatchBoundary": false,
       "hasErrorBoundary": false
@@ -61,11 +65,14 @@
       "id": "routes/index",
       "parentId": "root",
       "index": true,
-      "module": "/build/routes/index-ZNG4MV4H.js",
+      "module": "/build/routes/index-NTW3NYV6.js",
       "imports": [
-        "/build/_shared/chunk-5NJDQYSA.js",
+        "/build/_shared/chunk-HB4JY2SK.js",
+        "/build/_shared/chunk-YO2Z4YZV.js",
         "/build/_shared/chunk-SLNHJ22I.js",
-        "/build/_shared/chunk-BIQIHRPM.js"
+        "/build/_shared/chunk-UTFHOC7N.js",
+        "/build/_shared/chunk-HDHMN7Z2.js",
+        "/build/_shared/chunk-V65HAAZX.js"
       ],
       "hasAction": true,
       "hasLoader": true,
@@ -76,12 +83,100 @@
       "id": "routes/join-us",
       "parentId": "root",
       "path": "join-us",
-      "module": "/build/routes/join-us-VRUDSGQH.js",
+      "module": "/build/routes/join-us-L5RDQZPI.js",
       "imports": [
-        "/build/_shared/chunk-BIQIHRPM.js"
+        "/build/_shared/chunk-UTFHOC7N.js",
+        "/build/_shared/chunk-HDHMN7Z2.js",
+        "/build/_shared/chunk-V65HAAZX.js"
       ],
       "hasAction": true,
       "hasLoader": false,
+      "hasCatchBoundary": false,
+      "hasErrorBoundary": false
+    },
+    "routes/more-than-sport": {
+      "id": "routes/more-than-sport",
+      "parentId": "root",
+      "path": "more-than-sport",
+      "module": "/build/routes/more-than-sport-WRBU2CSA.js",
+      "hasAction": false,
+      "hasLoader": false,
+      "hasCatchBoundary": false,
+      "hasErrorBoundary": false
+    },
+    "routes/more-than-sport/game": {
+      "id": "routes/more-than-sport/game",
+      "parentId": "routes/more-than-sport",
+      "path": "game",
+      "module": "/build/routes/more-than-sport/game-ILRHOSWF.js",
+      "hasAction": false,
+      "hasLoader": false,
+      "hasCatchBoundary": false,
+      "hasErrorBoundary": false
+    },
+    "routes/more-than-sport/index": {
+      "id": "routes/more-than-sport/index",
+      "parentId": "routes/more-than-sport",
+      "index": true,
+      "module": "/build/routes/more-than-sport/index-FNOOCMF5.js",
+      "hasAction": false,
+      "hasLoader": false,
+      "hasCatchBoundary": false,
+      "hasErrorBoundary": false
+    },
+    "routes/more-than-sport/result": {
+      "id": "routes/more-than-sport/result",
+      "parentId": "routes/more-than-sport",
+      "path": "result",
+      "module": "/build/routes/more-than-sport/result-2EHGSN72.js",
+      "hasAction": true,
+      "hasLoader": false,
+      "hasCatchBoundary": false,
+      "hasErrorBoundary": false
+    },
+    "routes/more-than-sport/result/$resultId": {
+      "id": "routes/more-than-sport/result/$resultId",
+      "parentId": "routes/more-than-sport/result",
+      "path": ":resultId",
+      "module": "/build/routes/more-than-sport/result/$resultId-XZBQPDCO.js",
+      "hasAction": false,
+      "hasLoader": false,
+      "hasCatchBoundary": false,
+      "hasErrorBoundary": false
+    },
+    "routes/news/$slug": {
+      "id": "routes/news/$slug",
+      "parentId": "root",
+      "path": "news/:slug",
+      "module": "/build/routes/news/$slug-UYB5R3SL.js",
+      "imports": [
+        "/build/_shared/chunk-Y7YQGZVY.js",
+        "/build/_shared/chunk-PMLKQLSF.js",
+        "/build/_shared/chunk-SLNHJ22I.js",
+        "/build/_shared/chunk-HDHMN7Z2.js",
+        "/build/_shared/chunk-V65HAAZX.js"
+      ],
+      "hasAction": false,
+      "hasLoader": true,
+      "hasCatchBoundary": false,
+      "hasErrorBoundary": false
+    },
+    "routes/news/index": {
+      "id": "routes/news/index",
+      "parentId": "root",
+      "path": "news",
+      "index": true,
+      "module": "/build/routes/news/index-NU5XJVJK.js",
+      "imports": [
+        "/build/_shared/chunk-Y7YQGZVY.js",
+        "/build/_shared/chunk-PMLKQLSF.js",
+        "/build/_shared/chunk-HB4JY2SK.js",
+        "/build/_shared/chunk-SLNHJ22I.js",
+        "/build/_shared/chunk-HDHMN7Z2.js",
+        "/build/_shared/chunk-V65HAAZX.js"
+      ],
+      "hasAction": false,
+      "hasLoader": true,
       "hasCatchBoundary": false,
       "hasErrorBoundary": false
     },
@@ -99,12 +194,12 @@
       "id": "routes/sitemap[.]xml",
       "parentId": "root",
       "path": "sitemap.xml",
-      "module": "/build/routes/sitemap[.]xml-OLH65YUE.js",
+      "module": "/build/routes/sitemap[.]xml-4SOHMVHI.js",
       "hasAction": false,
       "hasLoader": true,
       "hasCatchBoundary": false,
       "hasErrorBoundary": false
     }
   },
-  "url": "/build/manifest-2C3AA20A.js"
+  "url": "/build/manifest-01836CE4.js"
 }

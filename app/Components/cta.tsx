@@ -1,4 +1,5 @@
 import { Link } from 'remix';
+import Button from './button';
 
 interface CTAContent {
   heading: string;
@@ -18,11 +19,8 @@ export default function CTA(props: CTAContent) {
           {props.heading}
         </h2>
         <p className='base'>{props.body}</p>
-        <Link to={props.buttonTo} className=' inline-flex '>
-          <button className='py-4 px-6 bg-gradient-to-br from-green-300  via-green-500 to-yellow-400 rounded-xl text-black font-bold hover:bg-gradient-to-tl hover:scale-105 shadow-2xl'>
-            {props.buttonText}
-          </button>
-        </Link>
+
+        <Button title={props.buttonText} to={props.buttonTo} />
       </div>
     </section>
   );

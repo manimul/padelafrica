@@ -1,23 +1,26 @@
-import { Link } from 'react-router-dom';
 import CTA from '~/Components/cta';
-import EventImg from '~/images/event_ad.png';
-import { Meta } from 'remix';
+import EventImg from '~/images/padel_africa_roadshow.png';
+import { Meta, Link } from 'remix';
+import MetaImg from '~/images/meta-image.png';
 
 export const meta = () => {
   return {
-    title: 'About Padel Africa - Padel is Not Just a Sport',
+    title: 'About Padel Africa - Padel, More Than Sport',
     description:
-      'Learn about how Padel Africa is bringing padel, as a sport, a lifestyle, and a community builder, to Africa.   ',
+      'Padel Africa is bringing padel, as a sport, a lifestyle, and a community builder, to Africa, starting with centers in Ghana and Rwanda. We believe that Africa is the next growth centre of the world and that it provides immense opportunities for the few who take the leap and expand to Africa.  ',
     keywords: 'padel, africa, sport, ghana, rwanda, kenya, uganda, community',
+    'og:image': `https://www.padel.africa${MetaImg}`,
   };
 };
 
 export default function About() {
   return (
     <>
-      <section className='w-full md:p-32 py-12 px-3 space-y-12  flex md:flex-row flex-col bg-white justify-between text-black '>
+      <section className='w-full md:px-32 md:py-24 py-12 px-3 space-y-12  flex md:flex-row flex-col bg-white justify-between text-black '>
         <div className='md:w-3/5 md:px-12 px-4 space-y-4'>
-          <h1 className='text-5xl  font-heading  '>About Padel Africa</h1>
+          <h1 className='text-2xl  font-heading font-black tracking-widest uppercase  '>
+            About Padel Africa
+          </h1>
           <h2 className='font-heading text-2xl'>Who we are</h2>
           <p>
             We believe that Africa is the next growth centre of the world and

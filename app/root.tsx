@@ -22,6 +22,8 @@ import logo from './images/logo.svg';
 import logoDark from './images/pa-logo-dark.svg';
 import logoLight from './images/pa-logo-light.svg';
 import type { LoaderFunction, MetaFunction } from 'remix';
+import MetaImg from '~/images/meta-image.png';
+
 import { json } from 'remix';
 
 import * as gtag from '~/utils/gtags.client';
@@ -36,7 +38,7 @@ export const loader: LoaderFunction = async () => {
 };
 
 export const meta: MetaFunction = () => {
-  return { title: 'Padel Africa' };
+  return { title: 'Padel Africa', description: '' };
 };
 
 export function links() {
@@ -106,7 +108,7 @@ export const Nav = (setDarkMode: {
         } bg-slate-900 border-gray-200 px-4 sm:px-12 py-6 md:fixed w-full z-10 text-black `}
       >*/}
 
-      <nav className='bg-none border-gray-200 px-4 sm:px-12 py-6 w-full z-10 text-black   '>
+      <nav className='bg-slate-900 border-gray-200 px-4 sm:px-12 py-6 w-full z-10 text-black   '>
         <div className='container flex flex-wrap justify-between items-center mx-auto'>
           <a href='/' className='flex'>
             <img
@@ -168,15 +170,36 @@ export const Nav = (setDarkMode: {
             } w-full md:block md:w-auto`}
             id='mobile-menu'
           >
-            <ul className='flex flex-col  mt-12 md:mt-0   md:flex-row md:space-x-8 space-y-4  md:space-y-0   text-slate-900 dark:text-white'>
-              <li onClick={navbarOpen ? handleToggle : doNothing}>
+            <ul className='flex flex-col  mt-12 md:mt-0   md:flex-row md:space-x-8 space-y-4 opacity-90  md:space-y-0 font-heading uppercase tracking-widest   text-slate-900 dark:text-white'>
+              <li
+                className='hover:underline  hover:underline-offset-4 hover:font-black  hover:opacity-100 transition-all ease-in-out  '
+                onClick={navbarOpen ? handleToggle : doNothing}
+              >
                 <Link to='/'>Home </Link>
               </li>
-              <li onClick={navbarOpen ? handleToggle : doNothing}>
+              <li
+                className='hover:underline  hover:underline-offset-4 hover:font-black  hover:opacity-100 transition-all ease-in-out  '
+                onClick={navbarOpen ? handleToggle : doNothing}
+              >
                 <Link to='/about'>About </Link>
               </li>
-              <li onClick={navbarOpen ? handleToggle : doNothing}>
+              <li
+                className='hover:underline  hover:underline-offset-4 hover:font-black  hover:opacity-100 transition-all ease-in-out  '
+                onClick={navbarOpen ? handleToggle : doNothing}
+              >
                 <Link to='/join-us'>Join Us </Link>
+              </li>
+              <li
+                className='hover:underline  hover:underline-offset-4 hover:font-black  hover:opacity-100 transition-all ease-in-out  '
+                onClick={navbarOpen ? handleToggle : doNothing}
+              >
+                <Link to='/news'>News </Link>
+              </li>
+              <li
+                className='hover:underline  hover:underline-offset-4 hover:font-black  hover:opacity-100 transition-all ease-in-out  '
+                onClick={navbarOpen ? handleToggle : doNothing}
+              >
+                <Link to='/contact'>Contact </Link>
               </li>
               <li>
                 <a href='https://www.facebook.com/padelafrica' className=''>
@@ -313,16 +336,23 @@ export const Nav = (setDarkMode: {
 
 export function Footer() {
   return (
-    <footer className='p-4  sm:p-8  bg-white dark:bg-slate-900 dark:bg-opacity-75 bg-opacity-25 text-slate-900 dark:text-white'>
-      <div className='sm:flex sm:items-center sm:justify-between'>
-        <span className='text-sm sm:text-center '>
+    <footer className='   bg-slate-900   text-slate-900 dark:text-white'>
+      <div className='sm:flex sm:items-center sm:justify-between px-4 sm:px-12 py-6  mx-auto font-heading uppercase text-md tracking-widest '>
+        <span className='text-sm sm:text-center  '>
           © 2022{' '}
-          <a href='#' target='_blank' className='hover:underline'>
+          <Link
+            to='https://www.padel.africa'
+            target='_blank'
+            className='hover:underline'
+          >
             Padel Africa™
-          </a>
-          . All Rights Reserved.
+          </Link>
+          . All Rights Reserved
         </span>
-        <div className='flex mt-4 space-x-6 sm:justify-center sm:mt-0'>
+        <span className=' sm:text-center font-heading uppercase text-md '>
+          Padel Africa AB Org: 559341-5770
+        </span>
+        <div className='flex mt-4 space-x-6 sm:justify-center sm:mt-0 font-heading uppercase text-md'>
           <Link to='/' className=''>
             Home
           </Link>
@@ -331,6 +361,12 @@ export function Footer() {
           </Link>{' '}
           <Link to='/join-us' className=''>
             Join Us
+          </Link>
+          <Link to='/news' className=''>
+            News
+          </Link>
+          <Link to='/contact' className=''>
+            Contact
           </Link>
         </div>
       </div>
@@ -368,16 +404,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body
-        style={{
-          backgroundImage: ` ${
-            darkMode
-              ? ' linear-gradient(to right, rgba(255, 255, 255,1)'
-              : ' linear-gradient(to right, rgba(15, 23, 42,1)'
-          }     , rgba(255, 255, 255, 0.1)),url('${heroImg}')`,
-        }}
-        className='text-slate-900 dark:text-white  bg-cover bg-fixed   '
-      >
+      <body>
         <script
           async
           src={`https://www.googletagmanager.com/gtag/js?id=G-MV5HYEZ67F`}

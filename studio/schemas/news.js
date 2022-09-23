@@ -26,6 +26,16 @@ export default {
       type: 'blockContent',
     },
     {
+      name: 'extract',
+      title: 'Extract',
+      type: 'blockContent',
+    },
+    {
+      name: 'meta',
+      title: 'Meta',
+      type: 'string',
+    },
+    {
       name: 'publishedDate',
       title: 'Published date',
       type: 'datetime',

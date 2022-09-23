@@ -6,6 +6,9 @@ import {
   ActionFunction,
 } from 'remix';
 import { Meta } from 'remix';
+import heroImg from '../images/padel-hero.jpg';
+import BgImg from '~/images/web-bg.jpg';
+import MetaImg from '~/images/meta-image.png';
 
 import { getFilms, Film } from '~/api/films';
 import CTA from '~/Components/cta';
@@ -18,6 +21,7 @@ import {
   PortableTextTypeComponent,
   PortableTextComponentsProvider,
 } from '@portabletext/react';
+import Contact from '~/Components/contact';
 
 // loader() must be async!
 export async function loader() {
@@ -51,10 +55,11 @@ export async function loader() {
 
 export const meta = () => {
   return {
-    title: 'Padel Africa - Padel is Not Just a Sport',
+    title: 'Padel Africa - Padel, More Than Sport',
     description:
-      'Padel Africa is bringing padel, as a sport, a lifestyle, and a community builder, to Africa.   ',
+      'Padel Africa is bringing padel, as a sport, a lifestyle, and a community builder, to Africa, starting with centers in Ghana and Rwanda. Padel is more than sport - it is impact. ',
     keywords: 'padel, africa, sport, ghana, rwanda, kenya, uganda, community',
+    'og:image': `https://www.padel.africa${MetaImg}`,
   };
 };
 
@@ -89,6 +94,7 @@ export let action: ActionFunction = async ({ request }) => {
 };
 export default function Index() {
   const { newsPosts, aboutText, teamMembers, boardMembers } = useLoaderData();
+  const darkMode = false;
 
   const myPortableTextComponents = {
     types: {
@@ -99,7 +105,16 @@ export default function Index() {
   };
   //const films = useLoaderData<Film[]>();
   return (
-    <>
+    <div
+      style={{
+        backgroundImage: ` ${
+          darkMode
+            ? ' linear-gradient(to right, rgba(255, 255, 255,1)'
+            : ' linear-gradient(to right, rgba(15, 23, 42,1)'
+        }     , rgba(255, 255, 255, 0.1)),url('${heroImg}')`,
+      }}
+      className='text-slate-900 dark:text-white  bg-cover bg-fixed -mt-28  pt-16 md:pt-0  '
+    >
       <Hero
         heading='Padel has taken Europe by storm. Now it’s time to bring it to Africa.
         '
@@ -214,7 +229,7 @@ export default function Index() {
         id='news'
         className='[about] mt-20  p-vw-32 bg-white  dark:bg-slate-900 text-center space-y-vw-6-min@xl '
       >
-        <h2 className='text-5xl font-heading text-slate-900 dark:text-white '>
+        <h2 className='text-2xl  font-heading font-black tracking-widest uppercase  text-slate-900 dark:text-white '>
           Management Team
         </h2>
 
@@ -250,7 +265,7 @@ export default function Index() {
         id='news'
         className='[about]  p-vw-32 bg-gray-100  dark:bg-slate-800 text-center space-y-vw-6-min@xl '
       >
-        <h2 className='text-5xl font-heading text-slate-900 dark:text-white '>
+        <h2 className='text-2xl  font-heading  tracking-widest uppercase  text-slate-900 dark:text-white '>
           Board of Directors
         </h2>
 
@@ -286,7 +301,7 @@ export default function Index() {
         className='[contact]  bg-slate-900   space-x-10   p-vw-32  space-y-10 md:space-x-10 flex flex-col  text-white '
       >
         <div className='  m-auto  text-center m space-y-vw-6-min@xl md:w-1/2 '>
-          <h2 className='text-4xl font-heading text-transparent bg-clip-text bg-gradient-to-br from-green-300  via-green-500 to-yellow-400 '>
+          <h2 className='text-2xl  font-heading  tracking-widest uppercase  text-transparent bg-clip-text bg-gradient-to-br from-green-300  via-green-500 to-yellow-400 '>
             Contact Us
           </h2>
           <p className='base'>
@@ -297,19 +312,19 @@ export default function Index() {
           <div className=' space-x-vw-4-min@xl  md:inline-flex justify-between text-slate-900'>
             <a
               href='mailto:hello@padel.africa'
-              className='py-vw-4-min@xl-max@2xl px-vw-4-min@xl-max@2xl bg-gradient-to-br from-green-300   to-yellow-400 rounded-xl font-bold hover:bg-gradient-to-tl hover:scale-105 shadow-2xl'
+              className='py-vw-4-min@xl-max@2xl px-vw-4-min@xl-max@2xl bg-gradient-to-br from-green-300   to-yellow-400 font-heading uppercase tracking-widest  hover:bg-gradient-to-tl hover:scale-105 shadow-2xl'
             >
               Email Us
             </a>
             <a
               href='tel:0046739787764'
-              className=' py-vw-4-min@xl-max@2xl px-vw-4-min@xl-max@2xl bg-gradient-to-br from-white   to-gray-200 rounded-xl font-bold hover:bg-gradient-to-tl hover:scale-105 shadow-2xl'
+              className=' py-vw-4-min@xl-max@2xl px-vw-4-min@xl-max@2xl bg-gradient-to-br from-white   to-gray-200 font-heading uppercase tracking-widest  hover:bg-gradient-to-tl hover:scale-105 shadow-2xl'
             >
               Telephone
             </a>
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

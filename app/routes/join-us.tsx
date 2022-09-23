@@ -3,6 +3,8 @@ import { ActionFunction, Form, useActionData, Link, Meta } from 'remix';
 import CTA from '~/Components/cta';
 import Hero from '~/Components/campaign-hero';
 import BgImg from '~/images/web-bg.jpg';
+import Facts from '~/Components/facts';
+import MetaImg from '~/images/meta-image.png';
 
 export let action: ActionFunction = async ({ request }) => {
   let formData = await request.formData();
@@ -36,11 +38,12 @@ export let action: ActionFunction = async ({ request }) => {
 
 export const meta = () => {
   return {
-    title: 'Join Padel Africa - Padel is Not Just a Sport',
+    title: 'Join Padel Africa - Padel, More Than Sport',
     description:
-      'Join Padel Africa in bringing padel, as a sport, a lifestyle, and a community builder, to Africa.   ',
-    keywords: 'padel, africa, sport, ghana, rwanda, kenya, uganda, community',
-    'og:image': `https://padel.africa${BgImg}`,
+      'Learn about how you can join Padel Africa in bringing padel, as a sport, a lifestyle, and a community builder, to Africa, starting with centers in Ghana and Rwanda. Join Padel Africa in proving that padel is more than sport - it is impact. ',
+    keywords:
+      'padel, africa, investment, sport, ghana, rwanda, kenya, uganda, community',
+    'og:image': `https://www.padel.africa${MetaImg}`,
   };
 };
 
@@ -75,7 +78,9 @@ export default function JoinUs() {
       </div>
       <section className='my-auto bg-white md:p-32 py-12 px-3 flex md:flex-row flex-col justify-between text-black '>
         <div className='md:w-1/2 px-8 space-y-4'>
-          <h1 className='text-5xl  font-heading  '>Join Padel Africa</h1>
+          <h1 className='text-2xl  font-heading font-black tracking-widest uppercase  '>
+            Join Padel Africa
+          </h1>
           <div className='space-y-2 '>
             <p>
               So, what happens when the fastest growing sport meets the fastest
@@ -160,14 +165,24 @@ export default function JoinUs() {
         </div>
         <aside id='events' className='bg-gray-50 md:w-2/5 h-fit   space-y-2   '>
           <div className='p-8'>
-            <h2 className='text-2xl font-heading pb-4'>Upcoming events</h2>
+            <h2 className='text-2xl font-heading pb-4'>Events</h2>
             <ul className='space-y-3 text-xs '>
               <p className='italic'>
                 Register your interest in the form below and we will keep you
                 updated
               </p>
-              <li>
-                <strong>Stockholm </strong> - 2nd September -{' '}
+              <li className='line-through opacity-50'>
+                <strong>Online webinar </strong> - 23rd August -
+                <a
+                  className='underline bold'
+                  href='https://www.eventbrite.com/x/when-the-fastest-growing-sport-meets-the-fastest-growing-continent-tickets-400567747917'
+                >
+                  Register on Eventbrite
+                </a>
+              </li>
+              <li className='line-through opacity-50'>
+                <strong>Stockholm Padel Expo 2022 </strong> - 16th - 18th
+                September -{' '}
                 <a className='underline bold' href='mailto:hakan@bambwa.com'>
                   Email for details
                 </a>

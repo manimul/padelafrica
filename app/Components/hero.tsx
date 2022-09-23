@@ -23,7 +23,7 @@ export default function Hero(props: HeroContent) {
 
   return (
     <>
-      <main className='[hero] container mx-auto bg-none  md:pt-32 md:pb-12 mb-12 md:-mt-16 px-8 sm:px-12 flex  flex-col md:flex-row align-middle md:justify-between  bg-cover  md:space-x-12	 '>
+      <main className='[hero] container mx-auto bg-none pt-16 md:pt-32 md:pb-12 mb-12 md:-mt-16 px-8 sm:px-12 flex  flex-col md:flex-row align-middle md:justify-between  bg-cover  md:space-x-12	 '>
         <div className='w-full md:w-2/5 md:my-auto space-y-vw-2-min@xl md:py-16  '>
           <h1 className='text-4xl md:text-6xl font-heading uppercase '>
             Padel has taken Europe by storm.
